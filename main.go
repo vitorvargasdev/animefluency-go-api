@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/vitorvargasdev/animefluency-go-api/cmd/cli"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	cli.StartCLI()
 }
