@@ -8,6 +8,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	"github.com/vitorvargasdev/animefluency-go-api/internal/router"
 )
 
 func StartServer(port int) error {
@@ -25,6 +26,8 @@ func StartServer(port int) error {
 		AllowCredentials: false,
 		MaxAge:           300,
 	}))
+
+	router.AddRoutes(r)
 
 	portString := fmt.Sprintf(":%d", port)
 
