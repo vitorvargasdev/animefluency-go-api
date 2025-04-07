@@ -1,9 +1,13 @@
 package main
 
 import (
+	"log"
+
 	"github.com/vitorvargasdev/animefluency-go-api/cmd/cli"
 )
 
 func main() {
-	cli.StartCLI()
+	if err := cli.StartCLI(); err != nil {
+		log.Fatal(err)
+	}
 }
