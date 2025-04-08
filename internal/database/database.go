@@ -9,7 +9,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func Connect() (*sqlx.DB, error) {
+func GetDSN() string {
 	environment := os.Getenv("ENVIRONMENT")
 	host := os.Getenv("DB_HOST")
 	port := os.Getenv("DB_PORT")
@@ -31,6 +31,12 @@ func Connect() (*sqlx.DB, error) {
 		sslMode,
 	)
 
+	return dsn
+}
+
+func Connect() (*sqlx.DB, error) {
+	dsn := GetDSN()
+
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {
 		log.Fatalln(err)
@@ -46,3 +52,4 @@ func Connect() (*sqlx.DB, error) {
 
 	return db, nil
 }
+

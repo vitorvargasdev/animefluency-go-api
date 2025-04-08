@@ -13,6 +13,7 @@ func StartCLI() error {
 		Usage: "A CLI tool to manage the AnimeFluency API",
 		Commands: []*cli.Command{
 			commands.NewStartCommand(),
+			commands.NewMigrateCommand(),
 		},
 	}
 
