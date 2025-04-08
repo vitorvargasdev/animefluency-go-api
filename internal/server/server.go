@@ -2,13 +2,16 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	"github.com/vitorvargasdev/animefluency-go-api/internal/database"
 	"github.com/vitorvargasdev/animefluency-go-api/internal/router"
+	"github.com/vitorvargasdev/animefluency-go-api/internal/service"
 )
 
 func StartServer(port int) error {
@@ -27,11 +30,21 @@ func StartServer(port int) error {
 		MaxAge:           300,
 	}))
 
+	db, err := database.Connect()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer db.Close()
+
+	if err := service.NewPool(db); err != nil {
+		log.Fatal(err)
+	}
+
 	router.AddRoutes(r)
 
-	portString := fmt.Sprintf(":%d", port)
-
-	if err := http.ListenAndServe(portString, r); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), r); err != nil {
 		return err
 	}
 
