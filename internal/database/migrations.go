@@ -52,6 +52,8 @@ func Up() error {
 		return err
 	}
 
+	defer m.Close()
+
 	if err := m.Up(); err != nil {
 		log.Fatal(err)
 		return err
@@ -68,6 +70,8 @@ func Down() error {
 		return err
 	}
 
+	defer m.Close()
+
 	if err := m.Down(); err != nil {
 		log.Fatal(err)
 		return err
@@ -83,6 +87,8 @@ func Drop() error {
 		log.Fatal(err)
 		return err
 	}
+
+	defer m.Close()
 
 	if err := m.Drop(); err != nil {
 		log.Fatal(err)
