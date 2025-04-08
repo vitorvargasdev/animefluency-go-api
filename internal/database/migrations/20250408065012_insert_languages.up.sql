@@ -1,0 +1,13 @@
+INSERT INTO languages (language, code) VALUES ('Português (Brasil)', 'pt-BR');
+INSERT INTO languages (language, code) VALUES ('English (US)', 'en-US');
+INSERT INTO languages (language, code) VALUES ('Español (América Latina)', 'es-419');
+INSERT INTO languages (language, code) VALUES ('Español (España)', 'es-ES');
+INSERT INTO languages (language, code) VALUES ('العربية', 'ar-SA');
+INSERT INTO languages (language, code) VALUES ('Français (France)', 'fr-FR');
+INSERT INTO languages (language, code) VALUES ('Bahasa Indonesia', 'id-ID');
+INSERT INTO languages (language, code) VALUES ('Italiano', 'it-IT');
+INSERT INTO languages (language, code) VALUES ('Bahasa Melayu', 'ms-MY');
+INSERT INTO languages (language, code) VALUES ('Русский', 'ru-RU');
+INSERT INTO languages (language, code) VALUES ('ไทย', 'th-TH');
+INSERT INTO languages (language, code) VALUES ('Tiếng Việt', 'vi-VN');
+INSERT INTO languages (language, code) VALUES ('Deutsch', 'de-DE');
