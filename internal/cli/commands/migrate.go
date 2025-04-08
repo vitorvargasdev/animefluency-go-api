@@ -8,7 +8,7 @@ import (
 func NewMigrateCommand() *cli.Command {
 	return &cli.Command{
 		Name:  "migrate",
-		Usage: "Migrate the database",
+		Usage: "Handle database migrations",
 		Subcommands: []*cli.Command{
 			{
 				Name:  "create",
@@ -28,28 +28,28 @@ func NewMigrateCommand() *cli.Command {
 			},
 			{
 				Name:  "up",
-				Usage: "Migrate the database",
+				Usage: "Run all pending migrations",
 				Action: func(ctx *cli.Context) error {
 					return database.Up()
 				},
 			},
 			{
 				Name:  "down",
-				Usage: "Migrate the database",
+				Usage: "Revert the last migration",
 				Action: func(ctx *cli.Context) error {
 					return database.Down()
 				},
 			},
 			{
-				Name: "Drop",
-				Usage: "Migrate the database",
+				Name: "drop",
+				Usage: "Drop the database",
 				Action: func(ctx *cli.Context) error {
 					return database.Drop()
 				},
 			},
 			{
 				Name:   "reset",
-				Usage:  "Migrate the database",
+				Usage:  "Drop and run all migrations",
 				Action: func(ctx *cli.Context) error { 
 					return database.Reset()
 				},
